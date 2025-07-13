@@ -8,7 +8,6 @@ function CardsGrid() {
     fetch(import.meta.env.BASE_URL + "db.json")
       .then(res => res.json())
       .then(data => {
-        console.log("بيانات db.json:", data);
         setAzkarList(data.cards.map(item => ({ ...item, remaining: item.count })));
       })
       .catch(err => console.error("فشل في تحميل البيانات:", err));
@@ -34,7 +33,7 @@ function CardsGrid() {
               key={item.id}
               style={{
                 ...styles.cardBox,
-                backgroundColor: item.backgroundColor || "#ccc",
+                backgroundColor: item.backgroundColor || "#90caf9", // لون افتراضي أزرق فاتح
               }}
             >
               <h2 style={styles.azkarText}>{item.title}</h2>
