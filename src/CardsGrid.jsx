@@ -8,6 +8,7 @@ function CardsGrid() {
     fetch(import.meta.env.BASE_URL + "db.json")
       .then(res => res.json())
       .then(data => {
+        console.log("بيانات db.json:", data);
         setAzkarList(data.cards.map(item => ({ ...item, remaining: item.count })));
       })
       .catch(err => console.error("فشل في تحميل البيانات:", err));
