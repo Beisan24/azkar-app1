@@ -8,12 +8,10 @@ function CardsGrid() {
     fetch(import.meta.env.BASE_URL + "db.json")
       .then((res) => res.json())
       .then((data) => {
-        setAzkarList(
-          data.cards.map((item) => ({
-            ...item,
-            remaining: item.count,
-          }))
-        );
+        setAzkarList(data.cards.map((item) => ({
+          ...item,
+          remaining: item.count
+        })));
       })
       .catch((err) => console.error("فشل في تحميل البيانات:", err));
   }, []);
@@ -38,7 +36,7 @@ function CardsGrid() {
               key={item.id}
               style={{
                 ...styles.cardBox,
-                backgroundColor: item.backgroundColor || "#ccc",
+                backgroundColor: item.backgroundColor ?? "#ccc",
               }}
             >
               <h2 style={styles.azkarText}>{item.title}</h2>
@@ -107,7 +105,7 @@ const styles = {
     fontSize: "1.5rem",
     marginBottom: "15px",
     fontWeight: "700",
-    color: "#000",
+    color: "#000", 
   },
   circleBtn: {
     marginTop: "10px",
@@ -133,8 +131,8 @@ const styles = {
   },
   original: {
     fontSize: "1rem",
-    color: "#444",
     marginTop: "5px",
+    color: "#333",
   },
 };
 
