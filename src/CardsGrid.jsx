@@ -6,16 +6,21 @@ function CardsGrid() {
 
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + "db.json")
-      .then(res => res.json())
-      .then(data => {
-        setAzkarList(data.cards.map(item => ({ ...item, remaining: item.count })));
+      .then((res) => res.json())
+      .then((data) => {
+        setAzkarList(
+          data.cards.map((item) => ({
+            ...item,
+            remaining: item.count,
+          }))
+        );
       })
-      .catch(err => console.error("فشل في تحميل البيانات:", err));
+      .catch((err) => console.error("فشل في تحميل البيانات:", err));
   }, []);
 
   const decreaseCount = (id) => {
-    setAzkarList(prev =>
-      prev.map(item =>
+    setAzkarList((prev) =>
+      prev.map((item) =>
         item.id === id && item.remaining > 0
           ? { ...item, remaining: item.remaining - 1 }
           : item
@@ -128,8 +133,8 @@ const styles = {
   },
   original: {
     fontSize: "1rem",
-    marginTop: "5px",
     color: "#444",
+    marginTop: "5px",
   },
 };
 
