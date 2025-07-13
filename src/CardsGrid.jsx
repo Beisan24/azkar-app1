@@ -36,12 +36,12 @@ function CardsGrid() {
                 backgroundColor: item.backgroundColor || "#ccc",
               }}
             >
-              <h2 style={{ ...styles.azkarText, color: "#000" }}>{item.title}</h2>
+              <h2 style={styles.azkarText}>{item.title}</h2>
               <div style={styles.circleBtn} onClick={() => decreaseCount(item.id)}>
                 <MdSync style={styles.circleIcon} />
               </div>
-              <div style={{ ...styles.liveCount, color: "#000" }}>{item.remaining}</div>
-              <div style={{ ...styles.original, color: "#444" }}>{item.count} مرة</div>
+              <div style={styles.liveCount}>{item.remaining}</div>
+              <div style={styles.original}>{item.count} مرة</div>
             </div>
           ))}
         </div>
@@ -102,6 +102,7 @@ const styles = {
     fontSize: "1.5rem",
     marginBottom: "15px",
     fontWeight: "700",
+    color: "#000",
   },
   circleBtn: {
     marginTop: "10px",
@@ -123,10 +124,12 @@ const styles = {
   liveCount: {
     fontSize: "2rem",
     fontWeight: "bold",
+    color: "#000",
   },
   original: {
     fontSize: "1rem",
     marginTop: "5px",
+    color: "#444",
   },
 };
 
