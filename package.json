@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Palestine-Ploytechnic-University.github.io/azkar-app-beisan24",
+  "homepage": "https://Beisan24.github.io/azkar-app1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

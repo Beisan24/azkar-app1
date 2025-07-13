@@ -5,10 +5,10 @@ function AzkarDisplay() {
   const [azkarList, setAzkarList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3002/cards")
+    fetch(import.meta.env.BASE_URL + "db.json")
       .then((res) => res.json())
       .then((data) =>
-        setAzkarList(data.map((item) => ({ ...item, remaining: item.count })))
+        setAzkarList(data.cards.map((item) => ({ ...item, remaining: item.count })))
       )
       .catch((error) => console.error("فشل في تحميل البيانات:", error));
   }, []);
@@ -24,20 +24,19 @@ function AzkarDisplay() {
   };
 
   const colors = [
-  "#922B21",
-  "#1B4F72",
-  "#196F3D",
-  "#512E5F",
-  "#7E5109",
-  "#0E6251",
-  "#17202A",
-  "#873600",
-  "#4D5656",
-  "#5B2C6F",
-  "#145A32",
-  "#641E16"
-];
-
+    "#922B21",
+    "#1B4F72",
+    "#196F3D",
+    "#512E5F",
+    "#7E5109",
+    "#0E6251",
+    "#17202A",
+    "#873600",
+    "#4D5656",
+    "#5B2C6F",
+    "#145A32",
+    "#641E16"
+  ];
 
   return (
     <div style={styles.page}>
@@ -83,22 +82,20 @@ const styles = {
     margin: "0 auto",
     padding: "40px 20px",
   },
-mainTitle: {
-  textAlign: "center",
-  fontSize: "3.5rem",
-  fontWeight: "800",
-  fontFamily: "'Tajawal', sans-serif",
-  background: "linear-gradient(to right, #f39c12, #d35400)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
-  borderBottom: "3px solid #d35400",
-  width: "100%",
-  paddingBottom: "5px",
-  marginBottom: "30px",
-},
-
-
+  mainTitle: {
+    textAlign: "center",
+    fontSize: "3.5rem",
+    fontWeight: "800",
+    fontFamily: "'Tajawal', sans-serif",
+    background: "linear-gradient(to right, #f39c12, #d35400)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+    borderBottom: "3px solid #d35400",
+    width: "100%",
+    paddingBottom: "5px",
+    marginBottom: "30px",
+  },
   gridLayout: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
